@@ -1,7 +1,7 @@
 require 'test_helper'
 
 class ProductTest < ActiveSupport::TestCase
-
+	fixtures :products
 	def new_product(image_url)
 		Product.new(title: "Lorem Ipsum",
 								description: "Dolor Amet",
@@ -68,10 +68,30 @@ class ProductTest < ActiveSupport::TestCase
 
 		bad.each do |image|
 			product = new_product(image)
-			assert product(image).invalid?, "#{image} shouldn't be valid"
+			assert product.invalid?, "#{image} shouldn't be valid"
 			assert "URL must be a GIF, JPG or PNG image", product.errors[:image_url]
 		end
 
+	end
+
+	test "product is not valid without a unique title" do
+		product = Product.new(	title: products(:ruby).title,
+														description: "Dolor Amet",
+														price: 22.22,
+														image_url: "superman.jpg"
+			)
+		assert product.invalid?
+		assert ["has already been taken"], product.errors[:title]
+	end
+
+	test "product is not valid without a unique title - i18n" do
+		product = Product.new(  title: products(:ruby).title,
+			                      description: "Lorem Ipsum",
+			                      price: 22.22,
+			                      image_url: "one.jpg"
+													)
+		assert product.invalid?
+		assert [I18n.translate('errors.messages.taken')], product.errors[:title]
 	end
 
 end
