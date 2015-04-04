@@ -17,7 +17,7 @@ Product.create!(title: 'Programming Ruby 1.9 & 2.0',
 								image_url: 'http://ecx.images-amazon.com/images/I/4120975FZML.jpg',
 								price: 49.95)
 
-Product.create!(title: 'Rework',
+Product.create!(title: 'Rework Book',
 								description: %{<p>
 								Rework shows you a better, faster, easier way to succeed in business.
 								Read it and you'll know why plans are actually harmful, why you don't
