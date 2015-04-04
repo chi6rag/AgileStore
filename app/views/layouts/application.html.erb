@@ -7,8 +7,23 @@
   <%= csrf_meta_tags %>
 </head>
 <body class="<%= controller.controller_name %>">
+	<div id="banner">
+		<%= "Pragmatic Bookshelf" %>
+	</div>
 
-<%= yield %>
-
+	<!-- div#columns -->
+	<div id="columns">
+		<div id="side">
+			<ul>
+				<li><a href="#">Home</a></li>
+				<li><a href="#">Questions</a></li>
+				<li><a href="#">News</a></li>
+				<li><a href="#">Contact</a></li>
+			</ul>
+		</div>
+		<div id="main"><%= yield %></div>
+	</div>
+	<!-- /div#columns -->
+	
 </body>
 </html>
