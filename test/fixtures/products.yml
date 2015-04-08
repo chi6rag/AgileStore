@@ -9,7 +9,7 @@ one:
 two:
   title: MyString
   description: MyText
-  price: 9.99
+  price: Rs.9.99
   image_url: MyString
 
 ruby:
