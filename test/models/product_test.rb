@@ -94,4 +94,17 @@ class ProductTest < ActiveSupport::TestCase
 		assert [I18n.translate('errors.messages.taken')], product.errors[:title]
 	end
 
+	test "add unique products" do
+		product_first = Product.new(  title: products(:ruby).title,
+			                      description: "Lorem Ipsum",
+			                      price: 22.22,
+			                      image_url: "one.jpg")
+		assert_no_difference 'Product.count' do
+			product_second = Product.new(  title: products(:ruby).title,
+				                      description: "Lorem Ipsum",
+				                      price: 22.22,
+				                      image_url: "one.jpg")
+		end
+	end
+
 end
