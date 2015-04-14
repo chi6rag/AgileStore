@@ -47,4 +47,10 @@ class CartsControllerTest < ActionController::TestCase
 
     assert_redirected_to store_path
   end
+
+  test "should destroy cart using ajax" do
+    assert_difference('Cart.count', -1) do
+      
+    end
+  end
 end
