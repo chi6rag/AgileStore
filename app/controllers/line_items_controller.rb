@@ -1,6 +1,6 @@
 class LineItemsController < ApplicationController
   include CurrentCart
-  before_action :set_line_item, only: [:show, :edit, :update, :destroy]
+  before_action :set_line_item, only: [:show, :edit, :update, :destroy, :decrement]
   before_action :set_cart, only: :create
   before_action :set_counter_to_zero, only: [:create]
 
@@ -58,11 +58,18 @@ class LineItemsController < ApplicationController
   # DELETE /line_items/1
   # DELETE /line_items/1.json
   def destroy
-    cart = @line_item.cart
     @line_item.destroy
     respond_to do |format|
       format.html { redirect_to store_path, notice: 'Line item was successfully destroyed.' }
       format.json { head :no_content }
+    end
+  end
+
+  def decrement
+    @line_item.decrement_quantity
+    respond_to do |format|
+      format.html{ redirect_to store_path }
+      format.js 
     end
   end
 
