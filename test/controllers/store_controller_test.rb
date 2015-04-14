@@ -14,4 +14,10 @@ class StoreControllerTest < ActionController::TestCase
 		assert_select '.price', /Rs. [,\d]+\.\d\d/
   end
 
+  test "markup for store.coffee is in place" do
+    get :index
+    assert_select ".store .entry>img", 4
+    assert_select ".entry input[type='submit']", 4
+  end
+
 end

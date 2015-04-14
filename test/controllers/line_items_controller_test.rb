@@ -46,4 +46,14 @@ class LineItemsControllerTest < ActionController::TestCase
 
     assert_redirected_to store_path
   end
+
+  test "should create a new line_item using ajax" do
+    assert_difference('LineItem.count') do
+      xhr :post, :create, product_id: products(:rework).id
+    end
+    assert_response :success
+    assert_select_jquery :html, '#cart' do
+      assert_select 'tr#current_item td', /rework/
+    end
+  end
 end
