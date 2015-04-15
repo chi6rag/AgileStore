@@ -1,13 +1,13 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 one:
-  name: MyString
-  address: MyText
-  email: MyString
-  pay_type: MyString
+  name: Chirag Aggarwal
+  address: QD-23, IInd Floor, Pitampura, Delhi
+  email: chi6rag@gmail.com
+  pay_type: Check
 
 two:
-  name: MyString
-  address: MyText
-  email: MyString
-  pay_type: MyString
+  name: Ayushi Goel
+  address: BP-03, Shalimar Bagh, Delhi
+  email: ayushi25.goel@gmail.com
+  pay_type: Check
