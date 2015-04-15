@@ -11,20 +11,20 @@ class OrdersControllerTest < ActionController::TestCase
     assert_equal flash[:notice], "Your cart is empty"
   end
 
-  test "should get index" do
-    get :index
-    assert_response :success
-    assert_not_nil assigns(:orders)
-  end
-
   test "should get new" do
-    line_item = LineItem.new()
+    line_item = LineItem.new
     line_item.build_cart
     line_item.product = products(:ruby)
     line_item.save!
     session[:cart_id] = line_item.cart.id
     get :new
     assert_response :success
+  end
+
+  test "should get index" do
+    get :index
+    assert_response :success
+    assert_not_nil assigns(:orders)
   end
 
   test "should create order" do
