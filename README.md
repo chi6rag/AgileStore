@@ -12,6 +12,7 @@ Use Case: Buyer
  - Checkout and Make payment
  - Track the order
 
+
 Use Case: Seller
 ---------------
  - Add/Edit/Delete products to sell
